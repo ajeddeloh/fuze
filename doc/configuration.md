@@ -29,7 +29,7 @@ _Note: all fields are optional unless otherwise marked_
       * **start** (string): the start of the partition with a unit (KiB, MiB, GiB). If zero, the partition will be positioned at the earliest available part of the disk.
       * **type_guid** (string): the GPT [partition type GUID][part-types]. If omitted, the default will be 0FC63DAF-8483-4772-8E79-3D69D8477DE4 (Linux filesystem data).
   * **raid** (list of objects): the list of RAID arrays to be configured.
-    * **name** (string, required): the name to use for the resulting md device.
+    * **name** (string, required): the name to use for the resulting md device. If the array will contain the root partition, it must be suffixed with "-hasroot".
     * **level** (string, required): the redundancy level of the array (e.g. linear, raid1, raid5, etc.).
     * **devices** (list of strings, required): the list of devices (referenced by their absolute path) in the array.
     * **spares** (integer): the number of spares (if applicable) in the array.
