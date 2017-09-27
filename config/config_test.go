@@ -730,7 +730,7 @@ flannel:
 		assert.Equal(t, test.out.cfg, cfg, "#%d: bad config", i)
 	}
 }
-func TestConvertAs2_0(t *testing.T) {
+func TestConvertAs2_1(t *testing.T) {
 	type in struct {
 		cfg types.Config
 	}
@@ -1543,13 +1543,13 @@ func TestConvertAs2_0(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		cfg, r := ConvertAs2_0(test.in.cfg, "", nil)
+		cfg, r := ConvertAs2_1(test.in.cfg, "", nil)
 		assert.Equal(t, test.out.r, r, "#%d: bad report", i)
 		assert.Equal(t, test.out.cfg, cfg, "#%d: bad config", i)
 	}
 }
 
-func TestAndConvertAs2_0_0(t *testing.T) {
+func TestParseAndConvertAs2_1(t *testing.T) {
 	type in struct {
 		data string
 	}
@@ -1825,7 +1825,7 @@ storage:
 		if len(r.Entries) != 0 {
 			t.Errorf("#%d: got error while parsing input: %v", i, r)
 		}
-		igncfg, r := ConvertAs2_0(cfg, "", ast)
+		igncfg, r := ConvertAs2_1(cfg, "", ast)
 		assert.Equal(t, test.out.r, r, "#%d: bad report", i)
 		assert.Equal(t, test.out.cfg, igncfg, "#%d: bad config", i)
 	}
